@@ -1,19 +1,24 @@
-import { usePets } from "./hooks/usePets";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { PetDetail } from "./pages/PetDetail";
+import { About } from "./pages/About";
 
 function App() {
-  const { data, loading, error } = usePets();
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!data.length) return <p>No pets found</p>;
-
   return (
-    <div>
-      <h1>Pets</h1>
-      {data.map((p) => (
-        <p key={p.id}>{p.title}</p>
-      ))}
-    </div>
+    <BrowserRouter>
+      {/* Simple Navigation */}
+      <nav style={{ display: "flex", gap: 16, padding: 16 }}>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pets/:id" element={<PetDetail />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
