@@ -1,48 +1,54 @@
+import { useState } from "react";
 import { usePets } from "../hooks/usePets";
-import { Link } from "react-router-dom";
-import { useSelection } from "../context/SelectionContext";
+import { useDebounce } from "../hooks/useDebounce";
+import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
+import { Container } from "../components/Layout";
+import { Controls } from "../components/Controls";
+import { Toolbar } from "../components/Toolbar";
+import { Gallery } from "../components/Gallery";
 
 export const Home = () => {
   const { data, loading, error } = usePets();
-  const { toggleSelect, selected } = useSelection();
+
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("AZ");
+
+  const debouncedSearch = useDebounce(search);
+
+  const [visible, setVisible] = useState(8);
+  const loadMore = () => setVisible((prev) => prev + 8);
+  const loaderRef = useInfiniteScroll(loadMore);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <p>{error}</p>;
   if (!data.length) return <p>No pets found</p>;
 
+  const filtered = data
+    .filter(
+      (p) =>
+        p.title.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+        p.description.toLowerCase().includes(debouncedSearch.toLowerCase()),
+    )
+    .sort((a, b) => {
+      if (sort === "AZ") return a.title.localeCompare(b.title);
+      if (sort === "ZA") return b.title.localeCompare(a.title);
+      if (sort === "NEW")
+        return (
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+      if (sort === "OLD")
+        return (
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        );
+      return 0;
+    });
+
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Pets</h1>
-
-      <p>{selected.length} selected</p>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        {data.map((p) => {
-          const isSelected = selected.some((s) => s.id === p.id);
-
-          return (
-            <div
-              key={p.id}
-              style={{
-                border: "1px solid #ddd",
-                padding: 10,
-                borderRadius: 8,
-                background: isSelected ? "#e0e7ff" : "white",
-              }}
-            >
-              <Link to={`/pets/${p.id}`}>
-                <strong>{p.title}</strong>
-              </Link>
-
-              <p>{p.description}</p>
-
-              <button onClick={() => toggleSelect(p)}>
-                {isSelected ? "Deselect" : "Select"}
-              </button>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <Container>
+      <Controls search={search} setSearch={setSearch} setSort={setSort} />
+      <Toolbar pets={filtered} />
+      <Gallery pets={filtered.slice(0, visible)} />
+      <div ref={loaderRef} />
+    </Container>
   );
 };
