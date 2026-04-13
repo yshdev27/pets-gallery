@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { usePets } from "../hooks/usePets";
 import { useDebounce } from "../hooks/useDebounce";
-import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 import { Container } from "../components/Layout";
 import { Controls } from "../components/Controls";
 import { Toolbar } from "../components/Toolbar";
@@ -15,10 +14,6 @@ export const Home = () => {
   const [sort, setSort] = useState("AZ");
 
   const debouncedSearch = useDebounce(search);
-
-  const [visible, setVisible] = useState(8);
-  const loadMore = () => setVisible((prev) => prev + 8);
-  const loaderRef = useInfiniteScroll(loadMore);
 
   if (loading)
     return (
@@ -58,8 +53,7 @@ export const Home = () => {
     <Container>
       <Controls search={search} setSearch={setSearch} setSort={setSort} />
       <Toolbar pets={filtered} />
-      <Gallery pets={filtered.slice(0, visible)} />
-      <div ref={loaderRef} />
+      <Gallery pets={filtered} />
     </Container>
   );
 };
