@@ -6,6 +6,7 @@ import { Container } from "../components/Layout";
 import { Controls } from "../components/Controls";
 import { Toolbar } from "../components/Toolbar";
 import { Gallery } from "../components/Gallery";
+import { Skeleton } from "../components/Skeleton";
 
 export const Home = () => {
   const { data, loading, error } = usePets();
@@ -19,7 +20,17 @@ export const Home = () => {
   const loadMore = () => setVisible((prev) => prev + 8);
   const loaderRef = useInfiniteScroll(loadMore);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <Container>
+        <div style={{ display: "grid", gap: 16 }}>
+          {Array.from({ length: 8 }).map((_, i) => (
+            <Skeleton key={i} />
+          ))}
+        </div>
+      </Container>
+    );
+
   if (error) return <p>{error}</p>;
   if (!data.length) return <p>No pets found</p>;
 
