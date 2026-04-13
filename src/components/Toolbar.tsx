@@ -68,7 +68,7 @@ export const Toolbar = ({ pets }: any) => {
       <Actions>
         <Button onClick={() => selectAll(pets)}>Select All</Button>
         <Button onClick={clear}>Clear</Button>
-        <Button onClick={downloadImages}>Download</Button> {/* 👈 HERE */}
+        <Button onClick={downloadImages}>Download</Button>
       </Actions>
     </Bar>
   );
