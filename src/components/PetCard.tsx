@@ -64,6 +64,9 @@ export const PetCard = ({ pet }: { pet: Pet }) => {
           {isSelected ? "Selected" : "Select"}
         </Button>
       </Content>
+      <small style={{ color: "#888" }}>
+        {new Date(pet.createdAt).toLocaleDateString()}
+      </small>
     </Card>
   );
 };
