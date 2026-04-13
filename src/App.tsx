@@ -6,8 +6,15 @@ import { About } from "./pages/About";
 function App() {
   return (
     <BrowserRouter>
-      {/* Simple Navigation */}
-      <nav style={{ display: "flex", gap: 16, padding: 16 }}>
+      <nav
+        style={{
+          display: "flex",
+          gap: 16,
+          padding: 16,
+          borderBottom: "1px solid #eee",
+          background: "white",
+        }}
+      >
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
       </nav>
