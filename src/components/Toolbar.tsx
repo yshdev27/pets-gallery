@@ -34,6 +34,15 @@ export const Toolbar = ({ pets }: any) => {
 
   const totalSize = selected.reduce((acc, p) => acc + (p.size || 0), 0);
 
+  const downloadImages = () => {
+    selected.forEach((pet) => {
+      const link = document.createElement("a");
+      link.href = pet.imageUrl;
+      link.download = pet.title;
+      link.click();
+    });
+  };
+
   return (
     <Bar>
       <div>
@@ -42,6 +51,7 @@ export const Toolbar = ({ pets }: any) => {
       </div>
 
       <Actions>
+        <Button onClick={downloadImages}>Download</Button>
         <Button onClick={() => selectAll(pets)}>Select All</Button>
         <Button onClick={clear}>Clear</Button>
       </Actions>
