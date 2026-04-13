@@ -34,13 +34,28 @@ export const Toolbar = ({ pets }: any) => {
 
   const totalSize = selected.reduce((acc, p) => acc + (p.size || 0), 0);
 
-  const downloadImages = () => {
-    selected.forEach((pet) => {
-      const link = document.createElement("a");
-      link.href = pet.imageUrl;
-      link.download = pet.title;
-      link.click();
-    });
+  // ✅ FIXED DOWNLOAD FUNCTION
+  const downloadImages = async () => {
+    for (const pet of selected) {
+      try {
+        const response = await fetch(pet.imageUrl);
+        const blob = await response.blob();
+
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+
+        link.href = url;
+        link.download = `${pet.title}.jpg`;
+
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+        window.URL.revokeObjectURL(url);
+      } catch (err) {
+        console.error("Download failed:", err);
+      }
+    }
   };
 
   return (
@@ -51,9 +66,9 @@ export const Toolbar = ({ pets }: any) => {
       </div>
 
       <Actions>
-        <Button onClick={downloadImages}>Download</Button>
         <Button onClick={() => selectAll(pets)}>Select All</Button>
         <Button onClick={clear}>Clear</Button>
+        <Button onClick={downloadImages}>Download</Button> {/* 👈 HERE */}
       </Actions>
     </Bar>
   );
