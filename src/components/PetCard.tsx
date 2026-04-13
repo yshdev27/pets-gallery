@@ -46,6 +46,17 @@ const Button = styled.button`
   font-size: 12px;
 `;
 
+const DateText = styled.small`
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #888;
+  font-weight: 500;
+  text-align: center;
+  padding: 4px 0;
+  border-top: 1px solid #f0f0f0;
+`;
+
 export const PetCard = ({ pet }: { pet: Pet }) => {
   const { selected, toggleSelect } = useSelection();
   const isSelected = selected.some((p) => p.id === pet.id);
@@ -64,9 +75,7 @@ export const PetCard = ({ pet }: { pet: Pet }) => {
           {isSelected ? "Selected" : "Select"}
         </Button>
       </Content>
-      <small style={{ color: "#888" }}>
-        {new Date(pet.createdAt).toLocaleDateString()}
-      </small>
+      <DateText>{new Date(pet.createdAt).toLocaleDateString()}</DateText>
     </Card>
   );
 };

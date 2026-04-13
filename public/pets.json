@@ -8,11 +8,155 @@
     "size": 204800
   },
   {
-    "id": "2",
-    "title": "Persian Cat",
-    "description": "Calm and fluffy companion",
+    "id": "3",
+    "title": "Labrador Retriever",
+    "description": "Energetic and loyal family dog",
+    "imageUrl": "https://images.unsplash.com/photo-1561037404-61cd46aa615b",
+    "createdAt": "2024-03-20T14:45:00Z",
+    "size": 256000
+  },
+  {
+    "id": "4",
+    "title": "Siamese Cat",
+    "description": "Vocal and affectionate feline",
+    "imageUrl": "https://images.unsplash.com/photo-1573865526739-10659fec78a5",
+    "createdAt": "2024-04-05T09:15:00Z",
+    "size": 128000
+  },
+  {
+    "id": "5",
+    "title": "German Shepherd",
+    "description": "Intelligent and protective canine",
+    "imageUrl": "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95",
+    "createdAt": "2024-05-12T16:20:00Z",
+    "size": 307200
+  },
+  {
+    "id": "6",
+    "title": "Maine Coon Cat",
+    "description": "Large and gentle long-haired cat",
+    "imageUrl": "https://images.unsplash.com/photo-1574158622682-e40e69881006",
+    "createdAt": "2024-06-18T11:30:00Z",
+    "size": 192000
+  },
+  {
+    "id": "7",
+    "title": "Bulldog",
+    "description": "Calm and courageous companion",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2024-07-25T13:45:00Z",
+    "size": 224000
+  },
+  {
+    "id": "8",
+    "title": "Ragdoll Cat",
+    "description": "Relaxed and floppy cat breed",
+    "imageUrl": "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e",
+    "createdAt": "2024-08-30T10:00:00Z",
+    "size": 160000
+  },
+  {
+    "id": "10",
+    "title": "Bengal Cat",
+    "description": "Wild-looking domestic cat",
+    "imageUrl": "https://images.unsplash.com/photo-1574158622682-e40e69881006",
+    "createdAt": "2024-10-22T12:15:00Z",
+    "size": 176000
+  },
+  {
+    "id": "11",
+    "title": "Poodle",
+    "description": "Intelligent and hypoallergenic dog",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2024-11-08T17:45:00Z",
+    "size": 240000
+  },
+  {
+    "id": "12",
+    "title": "Scottish Fold Cat",
+    "description": "Folded-ear cat with sweet personality",
     "imageUrl": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6",
-    "createdAt": "2024-02-15T12:30:00Z",
-    "size": 102400
+    "createdAt": "2024-12-01T08:30:00Z",
+    "size": 144000
+  },
+  {
+    "id": "13",
+    "title": "African Grey Parrot",
+    "description": "Intelligent and talkative bird",
+    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+    "createdAt": "2025-01-15T10:20:00Z",
+    "size": 198000
+  },
+  {
+    "id": "14",
+    "title": "Cockatiel",
+    "description": "Friendly and musical companion bird",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2025-02-28T14:10:00Z",
+    "size": 165000
+  },
+  {
+    "id": "15",
+    "title": "Holland Lop Rabbit",
+    "description": "Floppy-eared and gentle bunny",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2025-03-12T16:45:00Z",
+    "size": 132000
+  },
+  {
+    "id": "16",
+    "title": "Syrian Hamster",
+    "description": "Curious and active small pet",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2025-04-08T11:30:00Z",
+    "size": 98000
+  },
+  {
+    "id": "17",
+    "title": "Goldfish",
+    "description": "Colorful and peaceful aquarium fish",
+    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+    "createdAt": "2025-05-22T09:15:00Z",
+    "size": 76000
+  },
+  {
+    "id": "18",
+    "title": "Red-Eared Slider Turtle",
+    "description": "Semi-aquatic reptile companion",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2025-06-14T13:20:00Z",
+    "size": 184000
+  },
+  {
+    "id": "19",
+    "title": "Guinea Pig",
+    "description": "Social and vocal small mammal",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2025-07-30T15:40:00Z",
+    "size": 112000
+  },
+  {
+    "id": "20",
+    "title": "Ferret",
+    "description": "Playful and curious mustelid",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2025-08-18T12:05:00Z",
+    "size": 156000
+  },
+  {
+    "id": "21",
+    "title": "Canary",
+    "description": "Melodious songbird with bright plumage",
+    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+    "createdAt": "2025-09-25T17:50:00Z",
+    "size": 89000
+  },
+  {
+    "id": "22",
+    "title": "Budgerigar",
+    "description": "Colorful and trainable parrot",
+    "imageUrl": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+    "createdAt": "2025-10-11T08:25:00Z",
+    "size": 124000
   }
 ]
