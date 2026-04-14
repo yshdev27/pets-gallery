@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import type { Pet } from "../types/pet";
 
 interface SelectionContextType {
@@ -12,7 +12,11 @@ const SelectionContext = createContext<SelectionContextType | null>(null);
 
 const STORAGE_KEY = "selectedPets";
 
-export const SelectionProvider = ({ children }: any) => {
+export const SelectionProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [selected, setSelected] = useState<Pet[]>(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     return stored ? JSON.parse(stored) : []; // Load from localStorage
@@ -43,12 +47,5 @@ export const SelectionProvider = ({ children }: any) => {
   );
 };
 
-export const useSelection = () => useContext(SelectionContext)!;
-    >
-      {children}
-    </SelectionContext.Provider>
-  );
-};
-
-// Custom hook to use the selection context in components
+// eslint-disable-next-line react-refresh/only-export-components
 export const useSelection = () => useContext(SelectionContext)!;

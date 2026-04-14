@@ -21,7 +21,15 @@ const Select = styled.select`
   background: white;
 `;
 
-export const Controls = ({ search, setSearch, setSort }: any) => {
+export const Controls = ({
+  search,
+  setSearch,
+  setSort,
+}: {
+  search: string;
+  setSearch: (value: string) => void;
+  setSort: (value: string) => void;
+}) => {
   return (
     <Wrapper>
       <Input

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import type { Pet } from "../types/pet";
 import { useSelection } from "../context/SelectionContext";
 
 const Bar = styled.div`
@@ -29,7 +30,7 @@ const Button = styled.button`
   }
 `;
 
-export const Toolbar = ({ pets }: any) => {
+export const Toolbar = ({ pets }: { pets: Pet[] }) => {
   const { selected, clear, selectAll } = useSelection();
 
   const totalSize = selected.reduce((acc, p) => acc + (p.size || 0), 0);
