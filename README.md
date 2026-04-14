@@ -5,21 +5,25 @@ A simple web app to browse and select pet images. Built with modern web technolo
 ## Key Decisions
 
 For selection, I decided users should be able to pick multiple pets at once, with a clear way to select all or clear selections. This makes it easy to batch actions like downloading without having to click each one individually.
+
 - PetCard component has a select button that calls toggleSelect from SelectionContext.
 - Toolbar has selectAll and clear buttons.
 - Selected pets get an outline border.
 
 Sorting was important to help users find pets quickly. I added options to sort by name alphabetically or by how recently they were added, so people can browse in the order that makes sense for them.
+
 - Controls component has a select dropdown for A-Z, Z-A, newest, oldest.
 - Sorting updates the pet list immediately.
 - Combines with search for filtering.
 
 Downloading selected images was a key feature because users might want to save their favorite pet photos. I made it so you can download all selected images with one click, each saved with the pet's name as the filename.
+
 - Toolbar's downloadImages function fetches each selected pet's imageUrl.
 - Creates a temporary anchor element for download.
 - Names files using pet.title.
 
 For state management, I kept global state for the selected pets so it stays consistent across the app, and even remembers your selections if you refresh the page. Local state handles things like the search filter and sort options, keeping them quick and responsive without affecting the rest of the app.
+
 - SelectionContext manages global selected array, persisted in localStorage.
 - Home component uses useState for search and sort.
 - Context provides toggleSelect, clear, selectAll methods.
