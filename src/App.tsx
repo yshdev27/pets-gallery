@@ -19,7 +19,6 @@ function App() {
         <Link to="/about">About</Link>
       </nav>
 
-      {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pets/:id" element={<PetDetail />} />

@@ -15,11 +15,11 @@ const STORAGE_KEY = "selectedPets";
 export const SelectionProvider = ({ children }: any) => {
   const [selected, setSelected] = useState<Pet[]>(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    return stored ? JSON.parse(stored) : [];
+    return stored ? JSON.parse(stored) : []; // Load from localStorage
   });
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(selected));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(selected)); // Save to localStorage
   }, [selected]);
 
   const toggleSelect = (pet: Pet) => {
@@ -43,4 +43,12 @@ export const SelectionProvider = ({ children }: any) => {
   );
 };
 
+export const useSelection = () => useContext(SelectionContext)!;
+    >
+      {children}
+    </SelectionContext.Provider>
+  );
+};
+
+// Custom hook to use the selection context in components
 export const useSelection = () => useContext(SelectionContext)!;

@@ -29,6 +29,8 @@ export const Home = () => {
   if (error) return <p>{error}</p>;
   if (!data.length) return <p>No pets found</p>;
 
+  // Filter and sort pets
+  // Filter and sort pets
   const filtered = data
     .filter(
       (p) =>

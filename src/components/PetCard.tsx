@@ -59,18 +59,16 @@ const DateText = styled.small`
 
 export const PetCard = ({ pet }: { pet: Pet }) => {
   const { selected, toggleSelect } = useSelection();
-  const isSelected = selected.some((p) => p.id === pet.id);
+  const isSelected = selected.some((p) => p.id === pet.id); // Check if pet is selected
 
   return (
     <Card selected={isSelected}>
       <Link to={`/pets/${pet.id}`}>
         <Image src={pet.imageUrl} loading="lazy" />
       </Link>
-
       <Content>
         <Title>{pet.title}</Title>
         <Desc>{pet.description}</Desc>
-
         <Button onClick={() => toggleSelect(pet)}>
           {isSelected ? "Selected" : "Select"}
         </Button>

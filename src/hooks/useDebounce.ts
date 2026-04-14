@@ -5,10 +5,10 @@ export const useDebounce = (value: string, delay = 300) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebounced(value);
+      setDebounced(value); // Update after delay
     }, delay);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer); // Clear timer on value change
   }, [value, delay]);
 
   return debounced;
