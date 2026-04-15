@@ -3,18 +3,17 @@ import styled from "styled-components";
 const Box = styled.div`
   height: 180px;
   border-radius: 12px;
-  background: #eee;
+  border: 1px solid #e5e7eb;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
   animation: pulse 1.5s infinite;
 
   @keyframes pulse {
     0% {
-      opacity: 0.6;
-    }
-    50% {
-      opacity: 1;
+      background-position: 100% 0;
     }
     100% {
-      opacity: 0.6;
+      background-position: -100% 0;
     }
   }
 `;

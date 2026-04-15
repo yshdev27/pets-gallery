@@ -6,6 +6,32 @@ import { Controls } from "../components/Controls";
 import { Toolbar } from "../components/Toolbar";
 import { Gallery } from "../components/Gallery";
 import { Skeleton } from "../components/Skeleton";
+import styled from "styled-components";
+
+const Hero = styled.section`
+  margin-bottom: 24px;
+`;
+
+const Eyebrow = styled.p`
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  margin-bottom: 8px;
+`;
+
+const Title = styled.h1`
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #111827;
+`;
+
+const StateText = styled.p`
+  margin: 0;
+  color: #6b7280;
+`;
 
 export const Home = () => {
   const { data, loading, error } = usePets();
@@ -26,11 +52,19 @@ export const Home = () => {
       </Container>
     );
 
-  if (error) return <p>{error}</p>;
-  if (!data.length) return <p>No pets found</p>;
+  if (error)
+    return (
+      <Container>
+        <StateText>{error}</StateText>
+      </Container>
+    );
+  if (!data.length)
+    return (
+      <Container>
+        <StateText>No pets found.</StateText>
+      </Container>
+    );
 
-  // Filter and sort pets
-  // Filter and sort pets
   const filtered = data
     .filter(
       (p) =>
@@ -53,6 +87,10 @@ export const Home = () => {
 
   return (
     <Container>
+      <Hero>
+        <Eyebrow>Collection</Eyebrow>
+        <Title>Discover Pets</Title>
+      </Hero>
       <Controls search={search} setSearch={setSearch} setSort={setSort} />
       <Toolbar pets={filtered} />
       <Gallery pets={filtered} />

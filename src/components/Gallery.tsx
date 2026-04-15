@@ -4,7 +4,7 @@ import { PetCard } from "./PetCard";
 
 const Grid = styled.div`
   display: grid;
-  gap: 16px;
+  gap: 18px;
 
   grid-template-columns: 1fr;
 

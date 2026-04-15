@@ -6,27 +6,44 @@ const Bar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
-  border: 1px solid #eee;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   padding: 12px 16px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  color: #111827;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 `;
 
 const Actions = styled.div`
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 `;
 
 const Button = styled.button`
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: #111;
-  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #111827;
   font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color var(--motion-fast) var(--motion-curve),
+    background-color var(--motion-fast) var(--motion-curve),
+    border-color var(--motion-fast) var(--motion-curve);
 
   &:hover {
-    opacity: 0.9;
+    background: #111827;
+    color: #ffffff;
+    border-color: #111827;
   }
 `;
 
@@ -35,7 +52,6 @@ export const Toolbar = ({ pets }: { pets: Pet[] }) => {
 
   const totalSize = selected.reduce((acc, p) => acc + (p.size || 0), 0);
 
-  // ✅ FIXED DOWNLOAD FUNCTION
   const downloadImages = async () => {
     for (const pet of selected) {
       try {
